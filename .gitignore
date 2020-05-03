@@ -1,0 +1,8 @@
+# igoring the .env files
+.env
+# Ignoring the node_modules ;
+node_modules
+# Igoring the frontend packages
+resources/assets/bower/*
+# Ignoring the php vendor packages;
+vendor/*

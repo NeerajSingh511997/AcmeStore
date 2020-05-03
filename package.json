@@ -1,0 +1,11 @@
+{
+    "author": "Neeraj Singh Junior",
+    "description": "",
+    "license": "non-commercial",
+    "name": "acmestore",
+    "version": "0.1.0",
+    "dependencies": {
+        "gulp": "^3.9.1",
+        "laravel-elixir": "~5.0"
+    }
+}
