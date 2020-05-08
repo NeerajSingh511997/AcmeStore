@@ -1,21 +1,18 @@
 <?php
 
-/**
- * IndexController;
- */
-
-
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+
 class IndexController extends BaseController{
 
     function homePage() {
-        echo "Hi, IndexController -> homepage";
+        return view("website.index");
     }
 
     function aboutPage() {
-        echo "Hi, IndexController -> aboutpage";
+        return view("website.about");
     }
+
 }

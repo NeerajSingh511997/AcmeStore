@@ -1,0 +1,1 @@
+<h1>404 Not Found</h1><?php /**PATH /var/www/html/php/AcmeStore/resources/views/error/404NotFound.blade.php ENDPATH**/ ?>

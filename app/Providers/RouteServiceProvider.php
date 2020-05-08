@@ -4,13 +4,12 @@ namespace App\Providers;
 
 use AltoRouter;
 
-include_once BASE_PATH. "/app/Controllers/IndexController.php";
-
 class RouteServiceProvider {
 
+    Protected $params;
+    Protected $method;
     Protected $routeMatch;
-    Protected $targetMethod;
-    Protected $targetController;
+    Protected $controller;
 
     function __construct(AltoRouter $route) {
 
@@ -18,26 +17,25 @@ class RouteServiceProvider {
         
         // If there any router matched;
         if ($this->routeMatch) {
-            list($this->targetController, $this->targetMethod) = explode("@", $this->routeMatch['target']);
-            $temp = new $this->targetController;
-            die($temp);
+            // Fetching route parameter from the routeMatch Array;
+            $this->params = array($this->routeMatch['params']) ?? [];
+            // Fetching CONTROLLER and METHOD from the routeMatch Array;
+            list($this->controller, $this->method) = explode("@", $this->routeMatch['target']);
+            
+            $target = array(new $this->controller, $this->method);
 
-            // $routeController = array(new $this->targetController, $this->targetMethod);
-            // $routeParams = array($this->routeMatch['params']);
-            // die("Hello World");
-            // // Executing the controller;
-            // if (is_callable($routeController)) {
-            //     echo "Hello world";
+            if (is_callable($target)) {
                 // Opening the Method inside the controller with the params;
-                // call_user_func_array($routeController, $routeParams);
-            // } else {
-            //     echo "Method '{$this->targetMethod}' of controller '{$this->targetController}' not found !";
-            // }
+                call_user_func_array($target, $this->params);
+            } else {
+                echo "Exception: Method '{$this->targetMethod}' of controller '{$this->targetController}' not found !";
+            }
 
         }else {
             // Error 404 returned to user;
             header($_SERVER['SERVER_PROTOCOL']."404 Not Found");
-            view('views/error/404NotFound');
+            view('error.404NotFound');
+
         }
 
     }

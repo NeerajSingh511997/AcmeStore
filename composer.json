@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app"
         },
         "files": [
             "app/Helpers/Helpers.php"
@@ -10,7 +10,10 @@
     "require": {
         "vlucas/phpdotenv": "^4.1",
         "altorouter/altorouter": "^2.0",
-        "philo/laravel-blade": "^3.1"
+        "philo/laravel-blade": "^3.1",
+        "illuminate/database": "5.8.*",
+        "fzaninotto/faker": "^1.9",
+        "phpmailer/phpmailer": "^6.1"
     },
     "config": {
         "optimize-autoloader": true

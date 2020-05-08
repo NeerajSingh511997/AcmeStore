@@ -1,0 +1,1 @@
+<h2>Hi, from about us page</h2><?php /**PATH /var/www/html/php/AcmeStore/resources/views/website/about.blade.php ENDPATH**/ ?>
